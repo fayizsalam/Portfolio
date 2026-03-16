@@ -1,53 +1,26 @@
-const express = require("express")
-const nodemailer = require("nodemailer")
-const cors = require("cors")
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import dotenv from "dotenv";
+import path from "path";
 
-const app = express()
+import contactRoutes from "./routes/contactRoute.js";
 
-app.use(express.json())
-app.use(cors())
-app.use(express.static("public"))
+dotenv.config();
 
-app.post("/send-email", async (req, res) => {
+const app = express();
 
-const {name,email,message} = req.body
+app.use(cors());
+app.use(express.json());
+app.use(express.static(path.join(path.resolve(), "public"))); 
 
-try{
 
-const transporter = nodemailer.createTransport({
+app.use("/api", contactRoutes);
 
-service: "gmail",
+mongoose.connect(process.env.MONGO_URI)
+.then(() => console.log("MongoDB Connected"))
+.catch(err => console.log(err));
 
-auth: {
-user: "faaezabdsalam@gmail.com",
-pass: "jpyp cjtk awkk bjqg"
-}
-
-})
-
-await transporter.sendMail({
-
-from: email,
-
-to: "faaezabdsalam@gmail.com",
-
-subject: `Portfolio Message from ${name}`,
-
-text: message
-
-})
-
-res.send({success:true})
-
-}catch(err){
-
-console.log(err)
-res.send({success:false})
-
-}
-
-})
-
-app.listen(3000,()=>{
-console.log("Server running on port 3000")
-})
+app.listen(5000, () => {
+    console.log("Server running on port 5000");
+});

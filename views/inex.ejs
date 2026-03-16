@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fayiz P A | Full-Stack Developer & Operations Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+
+        /* Progress Bar */
+        #progress-bar {
+            height: 4px;
+            background: linear-gradient(to right, #2563eb, #7c3aed);
+            width: 0%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        /* Advanced Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .active {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        /* Staggered Children */
+        .stagger-container .reveal {
+            transition-delay: calc(var(--i) * 150ms);
+        }
+
+        /* Floating Shapes */
+        .shape {
+            position: absolute;
+            z-index: -1;
+            filter: blur(60px);
+            border-radius: 50%;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        /* Custom Hover Effects */
+        .skill-chip { 
+            @apply px-4 py-2 bg-white border border-slate-100 text-slate-700 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300; 
+        }
+        .skill-chip:hover {
+            @apply bg-blue-600 text-white -translate-y-2 shadow-xl shadow-blue-200 border-blue-600;
+        }
+
+        .section-heading { @apply text-xs font-black uppercase tracking-[0.4em] text-blue-600 mb-6 block; }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 25s linear infinite;
+        }
+
+        /* Magnetic Button Effect */
+        .btn-magnetic {
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+    </style>
+</head>
+<body class="selection:bg-blue-100 selection:text-blue-900">
+
+    <div id="progress-bar"></div>
+
+    <!-- Background Decoration -->
+    <div class="shape w-96 h-96 bg-blue-100 top-20 -left-20"></div>
+    <div class="shape w-80 h-80 bg-indigo-100 bottom-20 -right-20"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100 transition-all duration-500" id="main-nav">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center" id="nav-container">
+            <div class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-white font-bold transition-all group-hover:rotate-12 group-hover:bg-blue-600">F</div>
+                <span class="text-xl font-extrabold tracking-tighter text-slate-900">FAYIZ P A</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-10 text-[12px] font-bold tracking-widest uppercase">
+                <a href="#home" class="hover:text-blue-600 transition-colors">Intro</a>
+                <a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
+                <a href="#skills" class="hover:text-blue-600 transition-colors">Expertise</a>
+                <a href="#contact" class="px-6 py-2.5 bg-slate-900 text-white rounded-full hover:bg-blue-600 transition-all shadow-lg hover:shadow-blue-200">Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 px-8">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal-left active">
+                <span class="section-heading">Available for hire</span>
+                <h1 class="text-6xl md:text-8xl font-extrabold text-slate-900 leading-[0.9] mb-8 tracking-tighter">
+                    Full Stack <br> <span class="text-blue-600">Architect.</span>
+                </h1>
+                <p class="text-xl text-slate-500 leading-relaxed mb-10 max-w-lg">
+                    Bridging the gap between <span class="text-slate-900 font-semibold">robust code</span> and <span class="text-slate-900 font-semibold">operational strategy</span>. 8+ years of delivering excellence.
+                </p>
+                <div class="flex flex-wrap gap-5">
+                    <a href="#contact" class="btn-magnetic px-10 py-5 bg-blue-600 text-white rounded-2xl font-bold shadow-2xl shadow-blue-200 hover:bg-blue-700 transition-all flex items-center gap-3">
+                        Drop a Message <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                    <a href="/files/Fayiz_PA_CV_2026.pdf" download class="px-10 py-5 bg-white border border-slate-200 text-slate-900 rounded-2xl font-bold hover:bg-slate-50 transition-all">
+                        Resume 2026
+                    </a>
+                </div>
+            </div>
+            <div class="reveal-right active flex justify-center">
+                <div class="relative">
+                    <div class="absolute -inset-10 bg-gradient-to-tr from-blue-100 to-indigo-50 rounded-full blur-3xl opacity-50 animate-pulse"></div>
+                    <div class="relative w-72 h-96 md:w-80 md:h-[28rem] rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-700">
+                        <img src="/images/FAYIZ.P A.jpg" alt="Fayiz" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee Tech Stack -->
+    <div class="py-10 bg-slate-50 border-y border-slate-100 overflow-hidden">
+        <div class="animate-marquee whitespace-nowrap">
+            <span class="mx-10 text-4xl font-black text-slate-200 uppercase">MongoDB</span>
+            <span class="mx-10 text-4xl font-black text-slate-200 uppercase">Express.js</span>
+            <span class="mx-10 text-4xl font-black text-blue-500/20 uppercase">React.js</span>
+            <span class="mx-10 text-4xl font-black text-slate-200 uppercase">Node.js</span>
+            <span class="mx-10 text-4xl font-black text-slate-200 uppercase">TypeScript</span>
+            <span class="mx-10 text-4xl font-black text-slate-200 uppercase">Next.js</span>
+            <span class="mx-10 text-4xl font-black text-blue-500/20 uppercase">Tailwind</span>
+            <!-- Duplicated for seamless loop -->
+            <span class="mx-10 text-4xl font-black text-slate-200 uppercase">MongoDB</span>
+            <span class="mx-10 text-4xl font-black text-slate-200 uppercase">Express.js</span>
+            <span class="mx-10 text-4xl font-black text-blue-500/20 uppercase">React.js</span>
+            <span class="mx-10 text-4xl font-black text-slate-200 uppercase">Node.js</span>
+            <span class="mx-10 text-4xl font-black text-slate-200 uppercase">TypeScript</span>
+            <span class="mx-10 text-4xl font-black text-slate-200 uppercase">Next.js</span>
+            <span class="mx-10 text-4xl font-black text-blue-500/20 uppercase">Tailwind</span>
+        </div>
+    </div>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-32 px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="reveal text-center mb-24">
+                <span class="section-heading">Professional Journey</span>
+                <h2 class="text-5xl font-extrabold text-slate-900">Work History</h2>
+            </div>
+
+            <div class="space-y-12 stagger-container">
+                <!-- Card 1 -->
+                <div class="reveal group relative pl-12 border-l-2 border-slate-100 pb-12" style="--i: 1">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-lg transition-transform group-hover:scale-150"></div>
+                    <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all group-hover:shadow-xl group-hover:border-blue-100">
+                        <span class="text-blue-600 font-bold text-sm">2024 — Present</span>
+                        <h3 class="text-2xl font-bold text-slate-900 mt-2">Web Developer (MERN Stack)</h3>
+                        <p class="text-slate-500 font-medium mb-6">Brototype, Kochi</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Developing high-performance full-stack applications with a focus on clean architecture and scalable databases.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="reveal group relative pl-12 border-l-2 border-slate-100 pb-12" style="--i: 2">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 border-4 border-white transition-transform group-hover:bg-blue-600 group-hover:scale-150"></div>
+                    <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all group-hover:shadow-xl">
+                        <span class="text-slate-400 font-bold text-sm">3 Years</span>
+                        <h3 class="text-2xl font-bold text-slate-900 mt-2">Procurement Operations</h3>
+                        <p class="text-slate-500 font-medium mb-6">Apex Trading Co, Dubai</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Streamlining global supply chains and optimizing vendor management through data-driven operational strategies.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="reveal group relative pl-12 border-l-2 border-slate-100" style="--i: 3">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 border-4 border-white transition-transform group-hover:bg-blue-600 group-hover:scale-150"></div>
+                    <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all group-hover:shadow-xl">
+                        <span class="text-slate-400 font-bold text-sm">2018 — 2020</span>
+                        <h3 class="text-2xl font-bold text-slate-900 mt-2">Assistant Coordinator</h3>
+                        <p class="text-slate-500 font-medium mb-6">Allianz Partners, Delhi</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Managing mission-critical workflows and team coordination for enterprise-level operational projects.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-32 bg-slate-900 text-white rounded-[4rem] mx-4 overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600/20 blur-[120px]"></div>
+        <div class="max-w-6xl mx-auto px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-20">
+                <div class="reveal-left">
+                    <span class="text-blue-400 text-xs font-black uppercase tracking-[0.4em] mb-6 block">Capabilities</span>
+                    <h2 class="text-5xl font-extrabold mb-8 leading-tight">Expertise forged in <br> technical complexity.</h2>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-12">
+                        I specialize in the JavaScript ecosystem but bring the analytical mindset of a service engineer to every project I build.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-4xl font-bold text-white mb-2">95%</h4>
+                            <p class="text-slate-500 text-xs uppercase font-bold tracking-widest">Client Satisfaction</p>
+                        </div>
+                        <div>
+                            <h4 class="text-4xl font-bold text-white mb-2">8+ Yrs</h4>
+                            <p class="text-slate-500 text-xs uppercase font-bold tracking-widest">Cross-Industry Exp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="stagger-container grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    <!-- Iterating through skills for staggered effect -->
+                    <span class="reveal skill-chip text-center" style="--i:1">MongoDB</span>
+                    <span class="reveal skill-chip text-center" style="--i:2">Express</span>
+                    <span class="reveal skill-chip text-center" style="--i:3">React.js</span>
+                    <span class="reveal skill-chip text-center" style="--i:4">Node.js</span>
+                    <span class="reveal skill-chip text-center" style="--i:5">TypeScript</span>
+                    <span class="reveal skill-chip text-center" style="--i:6">Next.js</span>
+                    <span class="reveal skill-chip text-center" style="--i:7">Redux</span>
+                    <span class="reveal skill-chip text-center" style="--i:8">Tailwind</span>
+                    <span class="reveal skill-chip text-center" style="--i:9">REST APIs</span>
+                    <span class="reveal skill-chip text-center" style="--i:10">AWS</span>
+                    <span class="reveal skill-chip text-center" style="--i:11">Docker</span>
+                    <span class="reveal skill-chip text-center" style="--i:12">Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-8">
+        <div class="max-w-5xl mx-auto">
+            <div class="reveal text-center mb-16">
+                <h2 class="text-5xl font-extrabold text-slate-900 mb-4">Let's build something.</h2>
+                <p class="text-slate-500">I'm currently accepting new projects and full-time roles.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="reveal-left bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100">
+                    <form id="" action="https://formsubmit.co/faaezabdsalam@gmail.com" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="hidden" name="_captcha" value="false" class="w-full p-4 rounded-xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all" required>
+                            <input type="hidden" name="_subject" value="Portfolio Contact - Fayiz" class="w-full p-4 rounded-xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all" required>
+                        </div>
+                        <input type="email" placeholder="Email Address" class="w-full p-4 rounded-xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all" required>
+                        <textarea placeholder="Tell me about your project..." class="w-full p-4 h-32 rounded-xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all resize-none" required></textarea>
+                        <button type="submit" class="w-full py-5 bg-slate-900 text-white rounded-xl font-bold hover:bg-blue-600 transition-all flex items-center justify-center gap-3">
+                            Send Inquiry <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="reveal-right flex flex-col justify-center space-y-8 pl-8">
+                    <div class="flex items-start gap-6">
+                        <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 flex-shrink-0">
+                            <i class="fa-solid fa-envelope text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Email Me</p>
+                            <a href="mailto:faaezabdsalam@gmail.com" class="text-xl font-bold text-slate-900 hover:text-blue-600">faaezabdsalam@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-6">
+                        <div class="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 flex-shrink-0">
+                            <i class="fa-brands fa-github text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Connect</p>
+                            <a href="https://github.com/fayizsalam" target="_blank" class="text-xl font-bold text-slate-900 hover:text-blue-600">github.com/fayizsalam</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-6">
+                        <div class="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 flex-shrink-0">
+                            <i class="fa-brands fa-linkedin text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Connect</p>
+                            <a href="https://linkedin.com/in/fayizsalam" target="_blank" class="text-xl font-bold text-slate-900 hover:text-blue-600">linkedin.com/in/fayizsalam</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-6">
+                        <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 flex-shrink-0">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">WhatsApp</p>
+                            <a href="https://wa.me/919778422315" target="_blank" class="text-xl font-bold text-slate-900 hover:text-blue-600">+91 9778422315</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-100 px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-slate-400 text-sm font-medium">© 2026 Fayiz P A. Engineered for Excellence.</p>
+            <div class="flex gap-6">
+                <a href="https://github.com/fayizsalam" target="_blank" class="text-slate-400 hover:text-slate-900 transition-colors"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/fayizsalam" target="_blank" class="text-slate-400 hover:text-blue-600 transition-colors"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for Scrolling Animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Staggered logic for children if needed
+                    if (entry.target.classList.contains('stagger-container')) {
+                        const children = entry.target.querySelectorAll('.reveal');
+                        children.forEach(child => child.classList.add('active'));
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-container').forEach(el => {
+            observer.observe(el);
+        });
+
+
+        // Magnetic Button Effect
+        const btns = document.querySelectorAll('.btn-magnetic');
+        btns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const position = btn.getBoundingClientRect();
+                const x = e.pageX - position.left - position.width / 2;
+                const y = e.pageY - position.top - position.height / 2;
+                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.4}px)`;
+            });
+            btn.addEventListener('mouseout', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+    </script>
+</body>
+</html>

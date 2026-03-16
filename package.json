@@ -2,18 +2,30 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+  "homepage": "https://github.com/fayizsalam/Portfolio#readme",
+  "bugs": {
+    "url": "https://github.com/fayizsalam/Portfolio/issues"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fayizsalam/Portfolio.git"
+  },
   "license": "ISC",
-  "type": "commonjs",
+  "author": "",
+  "type": "module",
+  "main": "server.mjs",
+"scripts": {
+  "start": "node server.mjs",
+  "dev": "nodemon server.mjs"
+},
   "dependencies": {
     "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
     "express": "^5.2.1",
+    "mongoose": "^9.3.0",
     "nodemailer": "^8.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

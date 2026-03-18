@@ -8,11 +8,10 @@ const index = (req, res) => {
 const sendMessage = async (req, res) => {
   try {
 
-    const { firstName, lastName, email, message } = req.body;
+    const { name, email, message } = req.body;
 
     const newMessage = new Contact({
-      firstName,
-      lastName,
+      name,
       email,
       message
     });
@@ -32,7 +31,7 @@ const sendMessage = async (req, res) => {
       to: process.env.EMAIL_USER,
       subject: "New Portfolio Message",
       text: `
-Name: ${firstName} ${lastName}
+Name: ${name} 
 Email: ${email}
 Message: ${message}
 `
